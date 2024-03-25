@@ -11,9 +11,9 @@ class DefaultController
     }
     public function Index()
     {
-
-        if (!isset($_SESSION["username"])) {
-            header("Location: /chieu2-main/accounts/login.php");
+        //Tuong tu viec khoi tao doi tuong $auth = new Auth();
+        if (!Auth::isLoggedIn()) {
+            header("Location: /chieu2-main/account/login");
         }
 
         $products = $this->productModel->readAll();

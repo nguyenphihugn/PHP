@@ -1,6 +1,9 @@
 <?php
 require_once 'config/database.php';
 require_once 'app/models/ProductModel.php';
+require_once 'app/models/AccountModel.php';
+require_once 'app/libs/Auth.php';
+
 
 session_start();
 
