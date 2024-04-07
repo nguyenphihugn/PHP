@@ -23,9 +23,7 @@ class CartController
     public function addtocart()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $product_id = $_POST['product'] ?? '';
-
-            echo "<script>console.log('Debug Objects: " . $product_id . "' );</script>";
+            $product_id = $_POST['id'] ?? '';
             if ($product_id == '') {
             } else {
                 if (!isset($_SESSION)) {
@@ -92,8 +90,8 @@ class CartController
             echo "Giỏ hàng của bạn đang trống. Không thể thanh toán.";
             return;
         }
-        if (isset($_GET["vnpay"])) {
-            $this->cartModel->checkout($_GET["vnpay"]);
+        if (isset($_GET["pay"])) {
+            $this->cartModel->checkout($_GET["pay"]);
         }
         $this->cartModel->checkout(null);
     }

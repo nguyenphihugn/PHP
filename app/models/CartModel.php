@@ -87,7 +87,7 @@ class CartModel
     function getIdUser($username)
     {
 
-        $stmt = $this->conn->prepare('SELECT id FROM account WHERE email = ?');
+        $stmt = $this->conn->prepare('SELECT id FROM accounts WHERE username = ?');
         $stmt->execute([$username]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

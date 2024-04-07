@@ -9,7 +9,7 @@ include_once "app/views/share/header.php"; ?>
             <div class="col-sm-6 mb-3 mb-sm-0">
                 <input value="<?= $product->name ?>" readonly type="text" class="form-control form-control-user" id="name" name="name" placeholder="Product Name">
             </div>
-            <button class="btn btn-primary btn-user btn-block">
+            <button type="submit" name="add_to_cart" class="btn btn-primary btn-user btn-block">
                 Confirm Add to Cart
             </button>
         </div>
