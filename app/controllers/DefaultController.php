@@ -17,7 +17,6 @@ class DefaultController
         }
 
         $products = $this->productModel->readAll();
-
         include_once 'app/views/share/index.php';
     }
 }

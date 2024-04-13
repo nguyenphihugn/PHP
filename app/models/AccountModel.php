@@ -19,6 +19,15 @@ class AccountModel
         $result = $stmt->fetch(PDO::FETCH_OBJ);
         return $result;
     }
+    function getNameById($id)
+    {
+        $query = "SELECT username FROM " . $this->table_name . " where id = $id";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        return $result;
+    }
 
     function save($username, $password, $name, $role = "user")
     {

@@ -18,5 +18,4 @@ class OrderDetailsModel
 
         return $stmt;
     }
-
 }

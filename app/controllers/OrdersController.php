@@ -11,10 +11,9 @@ class OrdersController
     }
     public function readAll()
     {
-        if (!Auth::isLoggedIn() && !Auth::isAdmin()) {
+        if (!Auth::isLoggedIn()) {
             header('Location:/chieu2-main/account/login');
         } else {
-
             $orders = $this->orderModel->readAll();
             include_once 'app/views/orders/index.php';
         }

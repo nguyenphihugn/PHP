@@ -10,6 +10,7 @@ class CartController
         $this->cartModel = new CartModel($this->db);
     }
 
+
     public function add($id)
     {
         $product = $this->cartModel->getProductById($id);
@@ -45,6 +46,26 @@ class CartController
         header('Location: /chieu2-main/Cart/cart');
         //header('Location: /chieu2-main');
     }
+
+    public function updateQuantity()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $product_id = $_POST['id'] ?? '';
+            $quantity = $_POST['quantity'] ?? '';
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            // Cập nhật số lượng sản phẩm trong session
+            if (!empty($product_id) && !empty($quantity)) {
+                $_SESSION['shoppingcart'][$product_id] = $quantity;
+            }
+        }
+        // Phản hồi bất kỳ dữ liệu nào bạn muốn, ví dụ: 'Updated successfully'.
+        echo 'Updated successfully';
+    }
+
     public function deleteitem($id)
     {
         $product = $this->cartModel->getProductById($id);

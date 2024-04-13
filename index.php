@@ -3,6 +3,8 @@ require_once 'config/database.php';
 require_once 'app/models/ProductModel.php';
 require_once 'app/models/AccountModel.php';
 require_once 'app/models/CartModel.php';
+require_once 'app/models/OrderModel.php';
+require_once 'app/models/OrderDetailsModel.php';
 require_once 'app/libs/Auth.php';
 
 

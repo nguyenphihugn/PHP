@@ -15,7 +15,6 @@ class orderdetailsController
         if (!Auth::isLoggedIn() && !Auth::isAdmin()) {
             header('Location:/chieu2-main/account/login');
         } else {
-
             $orderDetails = $this->orderDetailsModel->readAll();
             include_once 'app/views/orders/OrderDetails.php';
         }

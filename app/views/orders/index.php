@@ -9,6 +9,12 @@ include_once("app/views/share/header.php");
         <h6 class="m-0 font-weight-bold text-primary">Danh sách đơn hàng</h6>
     </div>
     <div class="card-body">
+        <a href="/chieu2-main" class="btn btn-primary btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-car"></i> <!-- Changed icon to a car -->
+            </span>
+            <span class="text">Về trang chủ</span>
+        </a>
         <div class="table-responsive">
             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
@@ -44,12 +50,15 @@ include_once("app/views/share/header.php");
                                         ID</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                         aria-label="Position: activate to sort column ascending"
-                                        style="width: 379.19px;">ID người đặt</th>
+                                        style="width: 279.19px;">ID người đặt</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                         aria-label="Office: activate to sort column ascending"
                                         style="width: 169.306px;">Tổng tiền</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                        aria-label="Age: activate to sort column ascending" style="width: 85.4398px;">
+                                        aria-label="Age: activate to sort column ascending" style="width: 100.4398px;">
+                                        Địa chỉ</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                        aria-label="Age: activate to sort column ascending" style="width: 100.4398px;">
                                         Trạng thái</th>
 
                                 </tr>
@@ -58,11 +67,11 @@ include_once("app/views/share/header.php");
                             <tbody>
                                 <?php while ($row = $orders->fetch(PDO::FETCH_ASSOC)) : ?>
                                 <tr class="even">
-                                    <td class="sorting_1"><?= $row['orderId'] ?></td>
+                                    <td class="sorting_1"><?= $row['id'] ?></td>
                                     <td><?= $row['accountId'] ?></td>
                                     <td><?= $row['total'] ?></td>
-
-                                    <td><?=$row['isPaid']? '<p class="text-success">Đã thanh toán':'<p class="text-danger">Chờ thanh toán</p>' ?>
+                                    <td><?= $row['address'] ?></td>
+                                    <td><?= $row['isPaid'] ? '<p class="text-success">Đã thanh toán' : '<p class="text-danger">Chờ thanh toán</p>' ?>
                                     </td>
 
                                 </tr>
