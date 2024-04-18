@@ -113,6 +113,7 @@ class CartController
         }
         if (isset($_GET["pay"])) {
             $this->cartModel->checkout($_GET["pay"]);
+            include_once 'app/views/payproducts/paid.php';
         }
         $this->cartModel->checkout(null);
     }

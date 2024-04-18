@@ -43,10 +43,9 @@ include_once "app/views/share/header.php"; ?>
                                         </div>
                                         <div class="col-xl-3 col-md-3 col-sm-5">
                                             <div class="d-flex flex-row align-items-center mb-1">
-                                                <h4 class="mb-1 me-1"><?= $row["price"] ?> $</h4>
+                                                <h4 class="mb-1 me-1"><?= $row["price"] ?> VND</h4>
                                                 <!-- <span class="text-danger"><s>$49.99</s></span> -->
                                             </div>
-                                            <h6 class="text-success">Free shipping</h6>
                                             <div class="row">
                                                 <div class="col">
                                                     <form class="user mb-2" action="/chieu2-main/Cart/addtocart" method="post" enctype="multipart/form-data">
@@ -74,25 +73,7 @@ include_once "app/views/share/header.php"; ?>
                 <hr />
 
                 <!-- Pagination -->
-                <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+
                 <!-- Pagination -->
             </div>
         </div>
