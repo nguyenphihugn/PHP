@@ -134,7 +134,8 @@ class CartModel
 
                 header("Location: /chieu2-main/app/payproducts/paid.php?total_amount=$total_amount");
             } else {
-                echo "<h1>Đã đặt hàng xong. Mã đơn hàng của bạn là: " . $order_id . ". Vui lòng đợi shop liên hệ</h1>";
+                header("Location: /chieu2-main/app/payproducts/paid.php?order_id=$order_id");
+                //echo "<h1>Đã đặt hàng xong. Mã đơn hàng của bạn là: " . $order_id . ". Vui lòng đợi shop liên hệ</h1>";
             }
         } catch (PDOException $e) {
             $this->conn->rollBack();

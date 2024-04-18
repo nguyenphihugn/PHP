@@ -1,38 +1,36 @@
+<?php
+$order_id = $_GET['order_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
+    <title>Thank You For Purchasing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container checkout-success-content">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="checkout-success-banner mb-4 mb-lg-5">
-                    <img class="blur-up lazyload" data-src="assets/images/checkout-success-banner.jpg" src="assets/images/checkout-success-banner.jpg" alt="Checkout Success Banner" />
-                </div>
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="card col-md-4 bg-white shadow-md p-5">
+            <div class="mb-4 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-success" width="75" height="75" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
+                </svg>
+            </div>
+            <div class="text-center">
+                <h4 class="card-title">Thank you for your purchase!</h4>
+                <p class="card-text mb-1">Your order ID is:
+                    <b><?php echo $order_id; ?></b>
+                </p>
+                <p>We've send the link to your inbox. Please check your Email </p>
+                <a href="/chieu2-main" class="btn btn-outline-success mt-3">Continue Shopping</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                <div class="card border-0 rounded-0">
-                    <div class="card-body text-center">
-                        <p class="checkout-success-icon"><i class="icon an an-check-square"></i></p>
-                        <h4 class="card-title">Thank you for your purchase!</h4>
-                        <p class="card-text mb-1">Your order # is: <b>10000123</b>.</p>
-                        <p class="card-text mb-1">You will receive an order confirmation email with details of your
-                            order and a link to track its progress.</p>
-                        <p class="card-text mb-1">All necessary information about the delivery, we sent to your email
-                        </p>
-                        <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
