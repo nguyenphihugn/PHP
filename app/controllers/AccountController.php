@@ -47,7 +47,7 @@
             $_SESSION["role"] = $account->role;
             header("location: /chieu2-main");
         } else {
-            $errors['account'] = 'Dang nhap that bai';
+            $errors['account'] = 'Đăng nhập thất bại';
             include_once "app/views/account/login.php";
         }
     }
@@ -70,12 +70,12 @@
                 $errors['password'] = 'Mật khẩu không hợp lệ';
             }
             if ($password != $confirmpassword) {
-                $errors["confirmpassword"] = "Mat khau xac nhan chua dung";
+                $errors["confirmpassword"] = "Mật khẩU xác nhận chưa đúng";
             }
 
             $account = $this->accountModel->getAccountByUsername($username);
             if ($account) {
-                $errors["account"] = "Tai khoan nay da co nguoi dang ky";
+                $errors["account"] = "Tài khoản này đẫ có người đăng ký";
             }
 
             if (count($errors) > 0) {

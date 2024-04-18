@@ -1,101 +1,103 @@
 <?php
 include_once "app/views/share/header.php"; ?>
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <a href="/chieu2-main/product/add" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                <span class="text">Add Product</span>
-            </a>
-            <a href="/chieu2-main/OrderDetails/readAll" class="btn btn-info btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                <span class="text">Chi Tiết Sản Phẩm </span>
-            </a>
-            <a href="/chieu2-main/Orders/readAll" class="btn btn-success btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                <span class="text">Chi Tiết Đơn Hàng </span>
-            </a>
-        </div>
-        <div class="table-responsive">
-            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead>
-                                <tr role="row">
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($row = $products->fetch(PDO::FETCH_ASSOC)) : ?>
-                                    <tr class="odd">
-                                        <th><?= $row["id"] ?></th>
-                                        <th><?= $row["name"] ?></th>
-                                        <th><?= $row["description"] ?></th>
 
-                                        <th><?php
-                                            if (empty($row["image"]) || !file_exists($row["image"])) {
-                                                echo "No Image!";
-                                            } else {
-                                                echo "<img src='/chieu2-main/" . $row["image"] . "'alt='product'/>";
-                                            }
-                                            ?>
-                                        </th>
-                                        <th><?= $row["price"] ?></th>
-                                        <th><a href="/chieu2-main/product/edit/<?= $row['id'] ?>"> Edit</a>
-                                            | <a href="/chieu2-main/product/delete/<?= $row['id'] ?>">Delete</a>
-                                            <div class="card-body p-1">
-                                                <form class="user" action="/chieu2-main/Cart/addtocart" method="post" enctype="multipart/form-data">
-                                                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                                                    <button type="submit" name="add_to_cart" class="btn btn-outline-secondary">
-                                                        Add Cart
-                                                    </button>
-                                                </form>
+<!-- sidebar + content -->
+<section class="">
+    <div class="container">
+        <div class="row">
+
+            <h1> Sản phẩm đang được bán tại Q3H Fishing Shop</h1>
+            <!-- content -->
+            <div class="col-lg-9">
+
+                <?php while ($row = $products->fetch(PDO::FETCH_ASSOC)) : ?>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-md-12">
+                            <div class="card shadow-0 border rounded-3">
+                                <div class="card-body">
+                                    <div class="row g-0">
+                                        <div class="col-xl-3 col-md-4 d-flex justify-content-center">
+                                            <div class="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
+
+                                                <?php
+                                                if (empty($row["image"]) || !file_exists($row["image"])) {
+                                                    echo "No Image!";
+                                                } else {
+                                                    echo "<img  src='/chieu2-main/" . $row["image"] . "' class='w-100' alt='product ' />";
+                                                }
+                                                ?>
+                                                <a href="#!">
+                                                    <div class="hover-overlay">
+                                                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </th>
-                                    </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-5">
-                        <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to
-                            10 of 57 entries</div>
-                    </div>
-                    <div class="col-sm-12 col-md-7">
-                        <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="dataTable_next"><a href="#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
-                            </ul>
+                                        </div>
+                                        <div class="col-xl-6 col-md-5 col-sm-7">
+                                            <h5><?= $row["name"] ?></h5>
+
+
+                                            <p class="text mb-4 mb-md-0">
+                                                <th><?= $row["description"] ?></th>
+                                            </p>
+                                        </div>
+                                        <div class="col-xl-3 col-md-3 col-sm-5">
+                                            <div class="d-flex flex-row align-items-center mb-1">
+                                                <h4 class="mb-1 me-1"><?= $row["price"] ?> $</h4>
+                                                <!-- <span class="text-danger"><s>$49.99</s></span> -->
+                                            </div>
+                                            <h6 class="text-success">Free shipping</h6>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <form class="user mb-2" action="/chieu2-main/Cart/addtocart" method="post" enctype="multipart/form-data">
+                                                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                                        <button type="submit" name="add_to_cart" class="btn btn-outline-secondary">Add To Cart</button>
+                                                    </form>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <div class="d-flex align-items-center mt-1">
+                                                        <a href="/chieu2-main/product/edit/<?= $row['id'] ?>" class="btn btn-light border px-2 pt-2 icon-hover-blue mr-2"><i class="fas fa-edit fa-lg px-1"></i></a>
+                                                        <a href="/chieu2-main/product/delete/<?= $row['id'] ?>" class="btn btn-light border px-2 pt-2 icon-hover-red"><i class="fas fa-trash fa-lg px-1"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                <?php endwhile; ?>
+
+
+                <hr />
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Pagination -->
             </div>
         </div>
     </div>
-</div>
+</section>
+
 <?php
 include_once "app/views/share/footer.php"; ?>

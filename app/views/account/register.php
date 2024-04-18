@@ -1,45 +1,100 @@
-<?php
-include_once "app/views/share/header.php"; ?>
-<?php
-if (isset($errors)) {
-    echo "<ul>";
-    foreach ($errors as $err) {
-        echo "<li class='text-danger'>$err</li>";
-    }
-    echo "</ul>";
-}
+<!DOCTYPE html>
+<html lang="en">
 
-?>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-<div class="card-body p-5 text-center">
-    <form class="user" action="/chieu2-main/account/save" method="post">
-        <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="text" class="form-control form-control-user" id="username" name="username"
-                    placeholder="username">
-            </div>
-            <div class="col-sm-6">
-                <input type="text" class="form-control form-control-user" id="fullname" name="fullname"
-                    placeholder="fullname">
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://clipart-library.com/images/8iEb5a8bT.png" class="img-fluid" alt="Sample image" />
+                </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form action="/chieu2-main/account/save" method="post">
+                        <h1>The Fishing Shop Q3H</h1>
+                        <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                        </div>
+
+                        <?php
+                        if (isset($errors)) {
+                            echo "<ul>";
+                            foreach ($errors as $err) {
+                                echo "<li class='text-danger'>$err</li>";
+                            }
+                            echo "</ul>";
+                        }
+
+                        ?>
+
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0"></p>
+                        </div>
+
+                        <!-- Email input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="text" id="username" name="username" required class="form-control form-control-lg" placeholder="Enter username" />
+                            <!-- <label class="form-label" for="username">Username</label> -->
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="text" id="fullname" name="fullname" placeholder="Enter fullname" required class="form-control form-control-lg">
+                        </div>
+
+                        <!-- Password input -->
+                        <div data-mdb-input-init class="form-outline mb-3">
+                            <input type="password" id="password" name="password" required class="form-control form-control-lg" placeholder="Enter password" />
+                            <!-- <label class="form-label" for="password">Password</label> -->
+                        </div>
+
+                        <div data-mdb-input-init class="form-outline mb-3">
+                            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm password" required class="form-control form-control-lg">
+                        </div>
+
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-info btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem">
+                                Register
+                            </button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">
+                                Have already an account?
+                                <a href="/chieu2-main/account/login" class="link-danger">Login</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+    </section>
+</body>
 
-        <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="password" class="form-control form-control-user" id="password" name="password"
-                    placeholder="password">
-            </div>
-            <div class="col-sm-6">
-                <input type="password" class="form-control form-control-user" id="confirmpassword"
-                    name="confirmpassword" placeholder="confirmpassword">
-            </div>
-        </div>
-        <button class="btn btn-primary btn-user btn-block">
-            Register
-        </button>
-    </form>
-    <a class="btn btn-info btn-block" href="/chieu2-main/account/login">Login</a>
-</div>
-
-<?php
-include_once "app/views/share/footer.php"; ?>
+</html>
